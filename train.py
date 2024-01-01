@@ -1,6 +1,6 @@
 import argparse
 import yaml
-from model import SceneClassifier
+from model import FPClassifier
 import torch
 from data.augmentations import Augmentations
 from data.dataset import FPDataset
@@ -22,7 +22,7 @@ if __name__ == '__main__':
     with open(opt, 'r') as config:
         opt = yaml.safe_load(config)    
     
-    model = SceneClassifier(pretrained=False, num_classes=opt['num_cls'])
+    model = FPClassifier(pretrained=False, num_classes=opt['num_cls'])
 
     train_image_dir = opt['dataset']['train']['image_path']
     train_img_size = opt['dataset']['train']['img_size']
