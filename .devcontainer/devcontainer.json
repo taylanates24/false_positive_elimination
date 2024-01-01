@@ -1,0 +1,27 @@
+{
+	"name": "Existing Dockerfile",
+
+	"context": "..",
+
+	"dockerFile": "../docker/Dockerfile",
+        // "image": "ubuntu:18.04",
+
+	"runArgs": [
+		"--gpus", "all",
+		//"-v", "${env:HOME}${env:USERPROFILE}/.ssh:/root/.ssh-localhost:ro",
+		//"-p", "1414:1414",
+
+		//for GUI
+		//"-v", "/tmp/.X11-unix:/tmp/.X11-unix",
+		"-e", "DISPLAY=${env:DISPLAY}",
+		"--ipc", "host"
+
+	],
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-python.python"
+			]
+		}
+	}
+}
