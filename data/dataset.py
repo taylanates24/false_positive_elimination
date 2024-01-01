@@ -2,7 +2,7 @@ from torch.utils.data import Dataset
 import torchvision.transforms as transforms
 import os
 import cv2
-from utils import letter_box, load_image
+from data.utils import letter_box, load_image
 
 
 class FPDataset(Dataset):
