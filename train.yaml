@@ -1,0 +1,35 @@
+epochs: 20
+val_frequency: 1
+learning_rate: 0.01
+results_metric_path: results.json
+optimizer: 'adam' # 'adam', 'sgd' or 'asgd'
+lr_scheduler: 'cosine' # 'cosine', 'multistep_lr', 'cosine_annealing'
+logger_pth: 'tb_logs'
+num_cls: 2
+
+dataset:
+  train:
+    image_path: '/bbox_labels_overfit'
+    batch_size: 4
+    shuffle: True
+    num_workers: 0
+    img_size: 128
+  val:
+    image_path: '/bbox_labels_overfit'
+    batch_size: 1
+    shuffle: False
+    num_workers: 0
+    img_size: 128
+
+  augmentations: # write the desired values, and append the probability, e.g. [val1, val2, probability] or null if that augmentation won't be used.
+    fliplr: [0.5, 1.0] # 0.5
+    scale: [0.85, 1.02, 1] # [0.95, 1.05]
+    brightness: [-15, 10, 1] # [-10, 10]
+    saturation: [-20, 20, 1] # [-10, 10] 
+    hue: [-5, 5, 1] # [-10, 10]
+    add_grayscale: [0, 0.2, 1] # [0, 0.2]
+    motion_blur: [3, 5, 0] # [3, 5]
+    contrast: [0.8, 1.2, 1] # [0.8, 1.2]
+    translate: [[-0.1, -0.1], [-0.1, -0.1], 0] # [[-0.1, 0.1], [-0.1, 0.1]]
+    rotate: [-5, 5, 0] # [-5, 5]
+    shear: [-5, -5, 0] # [-5, 5]
