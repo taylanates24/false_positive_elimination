@@ -74,7 +74,7 @@ if __name__ == '__main__':
 
     classifier = Classifier(model=model, scheduler=scheduler, optimizer=optimizer, loss=loss)
 
-    trainer = pl.Trainer(gpus=1,
+    trainer = pl.Trainer(gpus=opt['num_gpus'],
                          logger=logger,
                          callbacks=[checkpoint_callback],
                          #resume_from_checkpoint='/workspaces/FaceShapeClassifier/checkpoints/best-checkpoint.ckpt', 

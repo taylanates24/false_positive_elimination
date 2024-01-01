@@ -6,6 +6,7 @@ optimizer: 'adam' # 'adam', 'sgd' or 'asgd'
 lr_scheduler: 'cosine' # 'cosine', 'multistep_lr', 'cosine_annealing'
 logger_pth: 'tb_logs'
 num_cls: 2
+num_gpus: 1
 
 dataset:
   train:
