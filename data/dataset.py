@@ -6,6 +6,7 @@ from data.utils import letter_box, load_image
 
 
 class FPDataset(Dataset):
+    
     def __init__(self, image_path, image_size=64, augment=False, augmentations=None) -> None:
         super(FPDataset, self).__init__()
         self.image_path = image_path
@@ -48,13 +49,16 @@ class FPDataset(Dataset):
         if image.shape[0] != image.shape[1]:
             
             image = letter_box(image=image, size=self.image_size)
+            
         if image.shape[0] != self.image_size or image.shape[1] != self.image_size:
             image = cv2.resize(image, self.image_size)
 
         image = self.transform(image.astype('float32')) / 255
         label = int(image_name.split('_')[0])
+        
         if label == 9:
             label = 0
+            
         return image, label
 
 
